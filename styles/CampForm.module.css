@@ -1,0 +1,68 @@
+.form{
+
+    display: inline;
+  }
+  
+  .form label {
+    display: block;
+  }
+  
+  .form input {
+    width: 80%;
+    height: 40px;
+    padding: 5px;
+  }
+  
+  .form textarea {
+    width: 100%;
+    height: 150px;
+    padding: 5px 5px 5px 5px;
+  }
+  
+  .form input[type="submit"] {
+    display: inline;
+    width: 20%;
+    margin: 20px 0 30px;
+  }
+  
+  .form .file {
+    border: 1px #ccc solid;
+    background-color: #f4f4f4;
+    padding: 10px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .form select {
+    padding: 5px;
+    padding-right: 100px;
+  }
+  .Image
+  {
+    border-radius: 50%;
+  
+  }
+  .fieldset {
+    width: 350px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: right;}
+    .legend {
+    background-color: #efefef;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: left;
+    text-transform: uppercase;}
+   

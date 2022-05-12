@@ -1,0 +1,35 @@
+.event {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 12px;
+    box-shadow: 2px 3px 5px #c0c0c0;
+    width: 270px;
+  }
+  
+  .img {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .info {
+    flex: 2;
+  }
+  
+  @media (max-width: 600px) {
+    .event {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .info {
+      margin-bottom: 20px;
+    }
+  }
+  .Image
+  {
+    border-radius: 50%;
+    border:2px solid #000
+  
+  }

@@ -1,0 +1,26 @@
+.event {
+    margin: 10px 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px #ddd solid;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    display:inline-block;
+  }
+  
+  .event h4 {
+    margin-bottom: 10px;
+    flex: 2;
+    text-align: left;
+  }
+  
+  .edit,
+  .delete {
+    margin: 10px;
+  }
+  
+  .delete {
+    color: red;
+  }

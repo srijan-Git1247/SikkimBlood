@@ -1,0 +1,21 @@
+/*For Eligibility Grid*/
+.gridcontainer {
+    display: inline-block;
+  
+    gap: 10px 10px;
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% ;
+    padding: 10px;
+  }
+  
+  .griditem {
+    width:185px;
+    flex: fixed;
+    background-color: white;
+    border: 2px hidden #000;
+    box-shadow: 3px 5px 5px #D22B2B;
+    padding: 20px;
+    font-size: 50px;
+    align-items: center;
+  }
+  
+  

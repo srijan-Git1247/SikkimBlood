@@ -1,0 +1,12 @@
+.p{
+font-size:large;
+padding: 0px 150px 0px 150px;
+}
+  
+@media (max-width: 768px) {
+    .p {
+        font-size:large;
+        padding: 0px 0px 0px 0px;
+        
+    }
+}
