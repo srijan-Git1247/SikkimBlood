@@ -22,6 +22,7 @@ export default async (req, res) => {
 
     if (strapiRes.ok) {
       //set cookie
+    
       res.setHeader(
         "Set-Cookie",
         cookie.serialize("token", data.jwt, {

@@ -9,15 +9,76 @@ import Image from "next/image";
 //import { IoChatbubble } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AuthContext from "../../context/AuthContext";
+import { useContext } from "react";
 
 export default function EventPage({ evt }) {
+  const { user } = useContext(AuthContext);
   const router = useRouter();
-  
+
+  const handleRespond = async () => {
+    // console.log(user);
+    if (!user || user.role.type === "authenticated") {
+      toast.error("Please Register as a donor first");
+      return;
+    } else {
+      let { username, email, BloodType, PhoneNumber, address } = user;
+      let donor = {
+        Name: username,
+        Email: email,
+        BloodType: BloodType,
+        Contact: PhoneNumber,
+        Address: address,
+      };
+      //console.log(donor);
+      //if blood donor
+      const res = await fetch(`${API_URL}/events/${evt.id}`, {
+        method: "GET",
+      });
+      const data = await res.json();
+      //console.log(data);
+      if (data.Donors === null) {
+        data.Donors = [];
+      }
+
+      for (let i = 0; i < data.Donors.length; i++) {
+        if (JSON.stringify(data.Donors[i]) === JSON.stringify(donor)) {
+          toast.error("You have already responded to the request");
+          return;
+        }
+      }
+      if (confirm("Do you want to respond to this request?")) {
+        data.Donors.push(donor);
+
+        //console.log(data);
+        const register = await fetch(`${API_URL}/events/${evt.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        if (!register.ok) {
+          if (register.status === 403 || register.status === 401) {
+            toast.error("You are not authorized");
+            return;
+          }
+          toast.error("Something went wrong");
+        } else {
+          //const evt = await register.json();
+          alert(`Thanks for Responding for ${evt.name}.`);
+          router.push(`/`);
+        }
+      } else {
+        return;
+      }
+      //console.log(user);
+    }
+  };
 
   return (
     <Layout title={router.query.slug}>
       <div className={styles.event}>
-        
         <span>{new Date(evt.date).toLocaleDateString("en-UK")}</span>
 
         <h1>Contact Persons Name:{evt.name}</h1>
@@ -45,8 +106,19 @@ export default function EventPage({ evt }) {
         <h3>Contact Number:</h3>
         <p>{evt.Phone}</p>
         <br></br>
-        <span> <button className="btn-secondary">Respond to the Request</button><p><i>Responding to the request will share your data to the requester.</i></p></span>
-       
+        <span>
+          {" "}
+          <button className="btn-secondary" onClick={handleRespond}>
+            Respond to the Request
+          </button>
+          <p>
+            <i>
+              Responding to the request will share your details to the
+              requester.
+            </i>
+          </p>
+        </span>
+
         <Link href="/requests">
           <a className={styles.back}>{" <"}Go Back </a>
         </Link>
@@ -87,6 +159,7 @@ export async function getStaticProps({ params: { slug } }) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`);
 
   const events = await res.json();
+
   return {
     props: {
       evt: events[0],

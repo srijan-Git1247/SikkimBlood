@@ -18,7 +18,7 @@ export default function RegisterPage() {
   useEffect(() => error && toast.error(error));
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ email, password });
+    //console.log({ email, password });
 
     if (password !== passwordConfirm) {
       toast.error("Passwords don't match");
@@ -36,14 +36,14 @@ export default function RegisterPage() {
         <ToastContainer />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Enter Full Name</label>
 
             <input
               type="text"
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username"
+              placeholder="FullName"
             ></input>
           </div>
           <div>

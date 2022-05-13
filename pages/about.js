@@ -6,10 +6,13 @@ export default function AboutPage() {
   return (
     <Layout title="About Blood Donation">
       <h1>About</h1>
-      <p>Blood Quests</p>
+      <p>&copy;Sikkim Blood 2022</p>
       <p>Version 1.0.0</p>
       <p><Link href="https://nedevelopers.in/" >
-          <a>Ne developers</a>
+          <a>Ne developers &nbsp;<br/>Contact: +91-9894178970<br/>
+        Address: Opp. State Bank of Sikkim
+        Metro point, Tadong Gangtok, East Sikkim
+        737102</a>
         </Link></p>
         <br/>
         <h1>Support Partners</h1>

@@ -19,6 +19,7 @@ import styles2 from "../../styles/Form.module.css";
 export default function Profile({ userRequest, token, userData }) {
   const router = useRouter();
   const[disabled,setDisabled]=useState(true);
+ // console.log(userData);
 
  
   const { user } = useContext(AuthContext);
@@ -42,6 +43,7 @@ export default function Profile({ userRequest, token, userData }) {
     role: userData.role.type === "authenticated" ? "Non Donor" : "Blood Donor",
     PhoneNumber:userData.PhoneNumber,
     BloodType:userData.BloodType,
+    address:userData.address
   });
 
   const deleteEvent = async (id) => {
@@ -82,6 +84,12 @@ export default function Profile({ userRequest, token, userData }) {
       // console.log("Please fill in all the fields");
       return;
     }
+    if(userValues.PhoneNumber.length!==10)
+    {
+      toast.error("Please check your phone number");
+      // console.log("Please fill in all the fields");
+      return;
+    }
 
     const res = await fetch(`${API_URL}/users/${user.id}`, {
       method: "PUT",
@@ -102,7 +110,7 @@ export default function Profile({ userRequest, token, userData }) {
       alert(
         "Your Profile has been Updated."
       );
-      router.push(`/`);
+      router.reload();
     }
   };
   const handleInputChange = (e) => {
@@ -111,7 +119,7 @@ export default function Profile({ userRequest, token, userData }) {
   };
 
   const handleunregister = async () => {
-    console.log(values.PhoneNumber);
+    //console.log(values.PhoneNumber);
     if (confirm("Are you sure you do not want to donate any further?")) {
       const res = await fetch(`${API_URL}/users/${user.id}`, {
         method: "PUT",
@@ -132,7 +140,7 @@ export default function Profile({ userRequest, token, userData }) {
         alert(
           "You have backed out as a blood donor.Feel free to join the club anytime."
         );
-        router.push(`/`);
+        router.reload();
       }
     } else {
       return;
@@ -206,6 +214,18 @@ export default function Profile({ userRequest, token, userData }) {
               ></input>
             </div>
             <div>
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={userValues.address}
+                onChange={handleInputChange}
+                disabled={disabled}
+                
+              ></input>
+            </div>
+            <div>
               <label htmlFor="email">Email</label>
               <input
                 type="email"
@@ -216,6 +236,7 @@ export default function Profile({ userRequest, token, userData }) {
                 disabled={disabled}
                 
               ></input>
+              
             </div>
             <div>
               <label htmlFor="PhoneNumber">PhoneNumber</label>
@@ -223,8 +244,10 @@ export default function Profile({ userRequest, token, userData }) {
                 type="tel"
                 id="PhoneNumber"
                 name="PhoneNumber"
+                 pattern="[0-9]{10}"
                 value={userValues.PhoneNumber}
                 onChange={handleInputChange}
+               
                 disabled={disabled}
                 required
               ></input>
@@ -240,15 +263,15 @@ export default function Profile({ userRequest, token, userData }) {
                 disabled
               ></input>
               {userData.role.type === "authenticated" ? (
-                <>
+                <h6>
                   <Link href="/Donor/registerdonor">
                     Register as a Blood Donor?
                   </Link>
-                </>
+                </h6>
               ) : (
-                <><a  onClick={handleunregister}>
-                Back out as Blood Donor?
-              </a></>
+                <span><a  onClick={handleunregister} ><h6>Back out as Blood Donor?</h6>
+                
+              </a></span>
               )}
             </div>
             {userData.role.type==="authenticated"?(<></>):(<><div>

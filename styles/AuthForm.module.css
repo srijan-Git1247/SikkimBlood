@@ -13,6 +13,10 @@
     display: block;
     margin-bottom: 10px;
   }
+  .auth input{
+    height: 40px;
+    width:250px
+  }
   
   .auth input[type='text'],
   .auth input[type='email'],

@@ -5,7 +5,7 @@ import cookie from "cookie";
 //fetching from auth context
 export default async (req, res) => {
   const { email, emailo } = req.body;
-  console.log(email);
+ // console.log(email);
 
   if (req.method === "POST") {
     const strapiRes = await fetch(`${API_URL}/auth/forgot-password`, {

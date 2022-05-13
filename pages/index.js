@@ -3,11 +3,24 @@ import Link from "next/link";
 import Eligibility from "../components/Eligibility";
 import RequestItem from "../components/RequestItem";
 import { API_URL } from "../config/index";
+import { useContext,useState } from "react";
+import AuthContext from "../context/AuthContext";
+
 export default function HomePage({ events }) {
+  const { user } = useContext(AuthContext);
+  let lin;
+  if(user)
+  {
+    lin="/Donor/registerdonor"
+  }
+  else{
+    lin="/account/login"
+
+  }
   
   return (
     <Layout>
-      <Link href="/Donor/registerdonor"><a className="btn-secondary">Register as a donor</a></Link>
+      <Link href={lin}><a className="btn-secondary">Register as a donor</a></Link>
       <br></br>
       <br></br>
     

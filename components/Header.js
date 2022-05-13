@@ -11,6 +11,7 @@ export default function Header() {
   const openMenu = () => setIsOpen(!isOpen);
   const { user, logout } = useContext(AuthContext);
   //console.log(user);
+  //console.log(user);
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -106,7 +107,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/requests/add">
+          
               <button
                 className={
                   isOpen === false
@@ -124,7 +125,7 @@ export default function Header() {
               >
                 <FaSignOutAlt></FaSignOutAlt>Sign Out
               </button>
-            </Link>
+           
           </li>
           <li>
             <Link href="/account/login">

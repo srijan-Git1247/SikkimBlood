@@ -38,10 +38,33 @@
     margin-bottom: 20px;
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     .grid {
       grid-template-columns: 1fr;
     }
+    .form input {
+      width: 200px;
+      height: 40px;
+      padding: 5px;
+    }
+    
+    .form textarea {
+      width: 300px;
+      height: 150px;
+      padding: 5px 5px 5px 5px;
+    }
+    .form select {
+      width: 200px;
+      
+    }
+    
+    
+    .form input[type="submit"] {
+      display: block;
+      width: 200px;
+      margin: 20px 0 30px;
+    }
+    
   }
   .form select {
     padding: 5px;

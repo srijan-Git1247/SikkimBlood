@@ -94,11 +94,11 @@ const reset=async({code,password,passwordConfirmation})=>{
     });
     console.log({ identifier, password });
     const data = await res.json();
-    console.log(data);
+   // console.log(data);
     if (res.ok) {
       //coming from api/login
       setUser(data.user);
-      router.push("/");
+      router.reload();
     } else {
       setError(data.message);
       setError(null);
@@ -112,7 +112,7 @@ const reset=async({code,password,passwordConfirmation})=>{
     });
     if (res.ok) {
       setUser(null);
-      router.push("/");
+      router.reload();
     }
   };
   const checkUserLoggedIn = async (user) => {
@@ -120,6 +120,7 @@ const reset=async({code,password,passwordConfirmation})=>{
     const data = await res.json();
 
     if (res.ok) {
+     //console.log(data.user)
       setUser(data.user);
       //router.push("/account/profile");
     } else {

@@ -18,6 +18,7 @@ export default function RegisterDonor({token}) {
       role:"3",
       BloodType: "",
       PhoneNumber:"",
+      address:"",
       
     });
     
@@ -30,7 +31,7 @@ export default function RegisterDonor({token}) {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+   // console.log(values);
     //Some Validation
     const hasEmptyFields = Object.values(values).some(
       (element) => element === ""
@@ -62,7 +63,8 @@ export default function RegisterDonor({token}) {
       alert(
         "Congratulations,you have registered as a Blood Donor.You might be recieving requests any time soon."
       );
-      router.push(`/`);
+      router.reload();
+      router.push("/account/profile")
     }
     }
     else{
@@ -76,14 +78,18 @@ export default function RegisterDonor({token}) {
   
   return (
     <Layout title="Register Page">
-      <div className={styles.auth}>
+      <div >
+      
+        <ToastContainer />
+
+        <form onSubmit={handleSubmit} className={styles.auth} >
         <h1>
           <RiUserHeartFill />
           &nbsp;Donor Registration
+         
         </h1>
-        <ToastContainer />
-
-        <form onSubmit={handleSubmit} >
+        <a>(if already a donor, this will override your data)</a>
+        
         <div>
             <label htmlFor="BloodType">Blood Type</label>
             <select
@@ -115,6 +121,23 @@ export default function RegisterDonor({token}) {
               value={values.PhoneNumber}
               required
              onChange={handleInputChange}
+             placeholder="Enter your 10 digit phone-number"
+              
+               
+              
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="Address">Address</label>
+            <input
+              type="tel"
+              id="address"
+              name="address"
+             
+              value={values.address}
+              required
+             onChange={handleInputChange}
+             placeholder="Enter your address"
               
                
               
