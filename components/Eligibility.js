@@ -9,7 +9,7 @@ export default function Eligibility() {
     <div>
         
         <div className={styles.outer}>
-        <h1>Donor Eligibility</h1>
+        <h1>Donor Eligibility:</h1>
     <ul className={styles.honeycomb}>
       
     <li className={styles.honeycombcell } >

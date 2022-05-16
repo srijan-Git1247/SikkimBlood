@@ -14,14 +14,20 @@ export default function CampsPage({ events,page,total}) {
   
   return (
     <Layout>
+      <div className="divide">
       
       <h1>Upcoming Blood Donation Camps</h1>
-      
-      {events.length === 0 && <h1>There are no camps right now</h1>}
-
+      {events.length!==0?(
+    <>
       {events.map((evt) => (
-        <BloodCamps key={evt.id} evt={evt} />
+          <BloodCamps key={evt.id} evt={evt} />
       ))}
+    </>):
+    (
+      <>
+        <h1>No requests</h1>
+      </>
+    )}
       <div>
       {page>1&& (
         <Link href={`/camps?page=${page-1}`}>
@@ -40,7 +46,7 @@ export default function CampsPage({ events,page,total}) {
       <div><br></br><Link href="/">&lt;Home</Link></div>
       
       </div>
-      
+      </div>
       
     </Layout>
   );

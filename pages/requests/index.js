@@ -13,7 +13,7 @@ export default function EventsPage({ events,page,total}) {
   const lastPage=Math.ceil(total/PER_PAGE);
   return (
     <Layout>
-      
+      <div className="divide">
       <h1>Active Requirements</h1>
       <Search></Search>
       {events === 0 && <h1>No Requests</h1>}
@@ -41,7 +41,7 @@ export default function EventsPage({ events,page,total}) {
      
       
       </div>
-      
+      </div>
       
     </Layout>
   );

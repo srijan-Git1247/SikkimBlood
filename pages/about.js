@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <Layout title="About Blood Donation">
+      <div className="divide">
       <h1>About</h1>
       <p>&copy;Sikkim Blood 2022</p>
       <p>Version 1.0.0</p>
@@ -31,6 +32,8 @@ export default function AboutPage() {
         <PhotoGrid evt={"/images/SupportPartners/Comp.png"} />
         
       </div>
+      </div>
+      
     </Layout>
   );
 }

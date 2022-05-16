@@ -20,34 +20,43 @@ export default function HomePage({ events }) {
   
   return (
     <Layout>
-      <Link href={lin}><a className="btn-secondary">Register as a donor</a></Link>
+     
+      <div ><Link href={lin}><a className="btn-secondary">Register as a donor</a></Link></div>
+      
       <br></br>
       <br></br>
     
-
-      <h1>Emergency Requests</h1>
-      
-      {events.length === 0 && <h1>No Requests</h1>}
-      
+    
+      <h1>Emergency Requests:</h1>
+      <div className="divide">
+      {events.length!==0?(
+    <>
       {events.map((evt) => (
-        <RequestItem key={evt.id} evt={evt} />
+          <RequestItem key={evt.id} evt={evt} />
       ))}
+    </>):
+    (
+      <>
+        <h1>No requests</h1>
+      </>
+    )}
 
-      <div>
+      <div className="divide">
         {events.length > 0 && (
           <Link href="/requests">
             <a className="btn-secondary">View All Requests</a>
           </Link>
         )}
       </div>
-
+      </div>
       <Eligibility />
+     
     </Layout>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=5`);
+  const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=4`);
   const events = await res.json();
 
   return {

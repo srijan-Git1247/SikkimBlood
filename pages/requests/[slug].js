@@ -66,6 +66,25 @@ export default function EventPage({ evt }) {
           toast.error("Something went wrong");
         } else {
           //const evt = await register.json();
+          /*Send sms
+
+
+
+
+
+
+
+          */
+
+
+
+
+
+
+
+
+
+
           alert(`Thanks for Responding for ${evt.name}.`);
           router.push(`/`);
         }

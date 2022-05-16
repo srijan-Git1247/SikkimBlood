@@ -11,9 +11,8 @@ export default function middleware(req)
     const {cookies}=req;
     const jwt=cookies.token;
     const url=req.url;
-    console.log(jwt);
-    console.log(url)
-    console.log(process.env.SECRET);
+    
+   
     if(url.includes("/Donor")||url.includes("/profile")||url.includes("/requests/add"))
     {
         if(jwt===undefined)
@@ -27,7 +26,7 @@ export default function middleware(req)
         catch(err)
        
         {
-            console.log("error")
+            //console.log("error")
           //  return NextResponse.redirect(`${APP_URL}/account/login`);
         }
 
@@ -45,7 +44,7 @@ export default function middleware(req)
         }
         catch(err)
         {
-            console.log("error")
+            //console.log("error")
              //return NextResponse.next();
         }
                 

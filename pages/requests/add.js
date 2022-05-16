@@ -118,7 +118,7 @@ export default function add({token}) {
               onChange={handleInputChange}
             >
               <option></option>
-              <option value="STNM Hospital,Sochakgang,East Sikkim">STNM Hospital,Sochakgang, East Sikkim</option>
+              <option value="STNM Hospital, Sochakgang, East Sikkim">STNM Hospital,Sochakgang, East Sikkim</option>
               <option value="Central Referral Hospital(Manipal), Tadong">Central Referral Hospital(Manipal),Tadong, East Sikkim</option>
               <option value="Singtam District Hospital, Singtam, East Sikkim">Singtam District Hospital, Singtam, East Sikkim</option>
               <option value="Namchi District Hospital, Namchi, South Sikkim">Namchi District Hospital, Namchi, South Sikkim</option>

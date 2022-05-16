@@ -173,6 +173,7 @@ export default function Profile({ userRequest, token, userData }) {
   return (
     <Layout title="User Profile">
       <div className={styles.dash}>
+        <div className={styles.upper}>
         <h1>Your Profile</h1>
         {imagePreview ? (
           <Image
@@ -192,6 +193,7 @@ export default function Profile({ userRequest, token, userData }) {
             Upload a Picture
           </button>
           <br></br> <br></br> <br></br>
+        </div>
         </div>
         <Modal show={showModal} onClose={() => setShowModal(false)}>
           <ImageUpload

@@ -9,7 +9,7 @@ import { useContext } from "react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => setIsOpen(!isOpen);
-  const { user, logout } = useContext(AuthContext);
+  const { user,logout } = useContext(AuthContext);
   //console.log(user);
   //console.log(user);
   return (
@@ -78,7 +78,7 @@ export default function Header() {
               </a>
             </Link>
           </li>
-          <li>
+          {user?(<><li>
             <Link href="/requests/add">
               <a
                 className={
@@ -91,8 +91,7 @@ export default function Header() {
                 Put a Request
               </a>
             </Link>
-          </li>
-          <li>
+          </li> <li>
             <Link href="/account/profile">
               <a
                 className={
@@ -105,29 +104,27 @@ export default function Header() {
                 <FaUserCircle className={styles.ico} />
               </a>
             </Link>
-          </li>
-          <li>
+          </li> <li>
           
-              <button
-                className={
-                  isOpen === false
-                    ? "btn-secondary" + " " + "btn-icon"
-                    : styles.navlink +
-                      " " +
-                      styles.active +
-                      " " +
-                      "btn-secondary " +
-                      " " +
-                      "btn-icon"
-                }
-                onClick={logout} 
-                id="main"
-              >
-                <FaSignOutAlt></FaSignOutAlt>Sign Out
-              </button>
-           
-          </li>
-          <li>
+          <button
+            className={
+              isOpen === false
+                ? "btn-secondary" + " " + "btn-icon"
+                : styles.navlink +
+                  " " +
+                  styles.active +
+                  " " +
+                  "btn-secondary " +
+                  " " +
+                  "btn-icon"
+            }
+            onClick={logout} 
+            id="main"
+          >
+            <FaSignOutAlt></FaSignOutAlt>Sign Out
+          </button>
+       
+      </li></>):(<><li>
             <Link href="/account/login">
               <button
                 className={
@@ -148,7 +145,11 @@ export default function Header() {
                 Sign In
               </button>
             </Link>
-          </li>
+          </li></>)}
+          
+         
+         
+          
         </ul>
         <button
           className={
