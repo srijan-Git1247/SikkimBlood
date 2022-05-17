@@ -12,7 +12,7 @@ import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
 import { parseCookie } from "../../helpers";
 
-export default function add({ token }) {
+export default function Add({ token }) {
   const { user } = useContext(AuthContext);
 
   const [values, setValues] = useState({

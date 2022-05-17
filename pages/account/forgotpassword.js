@@ -8,7 +8,7 @@ import AuthContext from "../../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function forgotpassword() {
+export default function Forgotpassword() {
   const { forgot, error } = useContext(AuthContext);
   useEffect(() => error && toast.error(error));
   const [email, setEmail] = useState("");

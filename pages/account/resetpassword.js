@@ -7,7 +7,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import AuthContext from "../../context/AuthContext";
 import styles from "../../styles/AuthForm.module.css";
-export default function resetpassword() {
+export default function Resetpassword() {
   
 //taking the code 
   const [code,setCode]=useState("");

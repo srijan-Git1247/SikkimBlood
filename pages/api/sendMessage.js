@@ -1,6 +1,6 @@
 import twilio from "twilio";
 
-export default function sendMessage(req, res) {
+export default function SendMessage(req, res) {
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const token = process.env.TWILIO_AUTH_TOKEN;
   const client = twilio(accountSid, token);
