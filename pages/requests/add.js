@@ -12,20 +12,19 @@ import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
 import { parseCookie } from "../../helpers";
 
-export default function add({token}) {
- 
-  const { user} = useContext(AuthContext);
+export default function add({ token }) {
+  const { user } = useContext(AuthContext);
 
   const [values, setValues] = useState({
     name: "",
     units: "",
     venue: "",
     date: "",
-   
+
     BloodType: "",
     Phone: "",
     description: "",
-    
+
     published_at: null,
     user: user,
   });
@@ -34,43 +33,41 @@ export default function add({token}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(confirm("Are you sure ypu want post this request?"))
-    {
-    const hasEmptyFields = Object.values(values).some(
-      (element) => element === ""
-    );
+    if (confirm("Are you sure you want post this request?")) {
+      const hasEmptyFields = Object.values(values).some(
+        (element) => element === ""
+      );
 
-    if (hasEmptyFields) {
-      toast.error("Please fill in all the fields");
-      
-      return;
-    }
+      if (hasEmptyFields) {
+        toast.error("Please fill in all the fields");
 
-    const res = await fetch(`${API_URL}/events`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:`Bearer ${token}`,
-      },
-      body: JSON.stringify(values),
-    });
-    if (!res.ok) {
-      if (res.status === 403 || res.status === 401) {
-        toast.error("You are not authorized");
         return;
       }
-      toast.error("Something went wrong");
+
+      const res = await fetch(`${API_URL}/events`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) {
+        if (res.status === 403 || res.status === 401) {
+          toast.error("You are not authorized");
+          return;
+        }
+        toast.error("Something went wrong");
+      } else {
+        const evt = await res.json();
+        alert(
+          "Your Request will be verified by the admin. You may be receiving a call before your request is initiated."
+        );
+        router.push(`/`);
+      }
     } else {
-      const evt = await res.json();
-      alert(
-        "Your Request will be verified by the admin. You may be receiving a call before your request is initiated."
-      );
-      router.push(`/`);
+      return;
     }
-  }
-  else{
-    return;
-  }
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -82,7 +79,7 @@ export default function add({token}) {
       <h1>Request</h1>
       <ToastContainer />
 
-      <form onSubmit={handleSubmit} className={styles.form} >
+      <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">Contact Person's Name</label>
@@ -93,7 +90,6 @@ export default function add({token}) {
               value={values.name}
               onChange={handleInputChange}
               placeholder="Contact Person's Full Name"
-              
             ></input>
           </div>
           <div>
@@ -118,16 +114,27 @@ export default function add({token}) {
               onChange={handleInputChange}
             >
               <option></option>
-              <option value="STNM Hospital, Sochakgang, East Sikkim">STNM Hospital,Sochakgang, East Sikkim</option>
-              <option value="Central Referral Hospital(Manipal), Tadong">Central Referral Hospital(Manipal),Tadong, East Sikkim</option>
-              <option value="Singtam District Hospital, Singtam, East Sikkim">Singtam District Hospital, Singtam, East Sikkim</option>
-              <option value="Namchi District Hospital, Namchi, South Sikkim">Namchi District Hospital, Namchi, South Sikkim</option>
-              <option value="Geyzing District Hospital, West Sikkim">Geyzing District Hospital, West Sikkim</option>
-              <option value="Mangan District Hospital, North Sikkim">Mangan District Hospital, North Sikkim</option>
-             
+              <option value="STNM Hospital, Sochakgang, East Sikkim">
+                STNM Hospital,Sochakgang, East Sikkim
+              </option>
+              <option value="Central Referral Hospital(Manipal), Tadong">
+                Central Referral Hospital(Manipal),Tadong, East Sikkim
+              </option>
+              <option value="Singtam District Hospital, Singtam, East Sikkim">
+                Singtam District Hospital, Singtam, East Sikkim
+              </option>
+              <option value="Namchi District Hospital, Namchi, South Sikkim">
+                Namchi District Hospital, Namchi, South Sikkim
+              </option>
+              <option value="Geyzing District Hospital, West Sikkim">
+                Geyzing District Hospital, West Sikkim
+              </option>
+              <option value="Mangan District Hospital, North Sikkim">
+                Mangan District Hospital, North Sikkim
+              </option>
             </select>
           </div>
-          
+
           <div>
             <label htmlFor="date">Date</label>
             <input
@@ -137,10 +144,8 @@ export default function add({token}) {
               value={values.date}
               onChange={handleInputChange}
             ></input>
-           
           </div>
-          
-       
+
           <div>
             <label htmlFor="BloodType">Blood Type</label>
             <select
@@ -173,8 +178,6 @@ export default function add({token}) {
               required
               onChange={handleInputChange}
               placeholder="Please Enter a Valid Phone Number"
-               
-              
             ></input>
           </div>
         </div>
@@ -196,14 +199,11 @@ export default function add({token}) {
     </Layout>
   );
 }
-export async function getServerSideProps({req})
-{
-  const {token}=parseCookie(req);
-  return{
-    props:{
-      token
-    }
-  }
-
-
+export async function getServerSideProps({ req }) {
+  const { token } = parseCookie(req);
+  return {
+    props: {
+      token,
+    },
+  };
 }

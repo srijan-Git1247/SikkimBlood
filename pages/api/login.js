@@ -28,7 +28,7 @@ export default async (req, res) => {
         cookie.serialize("token", data.jwt, {
           httpOnly: true,
           secure: process.env.NODE_ENV !== "development",
-          maxAge: 60 * 60 * 24 * 7, //cookies maximum age
+          maxAge: 60 * 60 * 24, //cookies maximum age
           sameSite: "strict",
           path: "/",
         })

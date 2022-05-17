@@ -33,7 +33,7 @@ export default function resetpassword() {
         <ToastContainer />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="code">Code</label>
+            <label htmlFor="code">Token Code</label>
 
             <input
               type="text"

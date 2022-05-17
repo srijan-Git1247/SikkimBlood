@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
-import { API_URL } from "../../config";
+import { API_URL, APP_URL } from "../../config";
 import styles from "../../styles/Request.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -67,6 +67,7 @@ export default function EventPage({ evt }) {
         } else {
           //const evt = await register.json();
           /*Send sms
+        
 
 
 
@@ -75,17 +76,37 @@ export default function EventPage({ evt }) {
 
 
           */
+          const mes = `Congratulations!! You have received a Donor for the request of "${evt.name}"\n
+         
+         Donor Details: ${donor.Name}\n
+         BloodType: ${donor.BloodType}\n
+         Contact: ${donor.Contact}\n
+         Address: ${donor.Address}
+         Please check out the website for more information.\n
+         Link: ${APP_URL}/requests/${evt.slug}
 
+         
+         
+         
+         `;
+          console.log(mes);
+          const phone = "+91" + evt.Phone;
 
+          const res = await fetch(`${APP_URL}/api/sendMessage`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ phone, mes }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            alert("Details has been Shared");
+          } else {
+            toast.error(data.message);
+          }
 
-
-
-
-
-
-
-
-          alert(`Thanks for Responding for ${evt.name}.`);
+          alert(`Thanks for Responding to ${evt.name}.`);
           router.push(`/`);
         }
       } else {
@@ -103,12 +124,14 @@ export default function EventPage({ evt }) {
         <h1>Contact Persons Name:{evt.name}</h1>
         <ToastContainer />
         {
+         
           <div className="image">
             {
+              
               <Image
                 src={`/images/BloodTypes/${evt.BloodType}.jpg`}
-                width={300}
-                height={300}
+                width={150}
+                height={150}
                 alt=""
               />
             }

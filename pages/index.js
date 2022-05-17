@@ -37,7 +37,7 @@ export default function HomePage({ events }) {
     </>):
     (
       <>
-        <h1>No requests</h1>
+        <h2>No requests</h2>
       </>
     )}
 
