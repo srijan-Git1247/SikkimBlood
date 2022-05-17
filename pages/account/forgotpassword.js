@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { RiUserHeartFill } from "react-icons/Ri";
+import { RiUserHeartFill } from "react-icons/ri";
 import styles from "../../styles/AuthForm.module.css";
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";

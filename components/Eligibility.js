@@ -1,7 +1,7 @@
 import styles from "../styles/honeycomb.module.css";
-import {MdOutlinePregnantWoman} from "react-icons/Md"
-import {BsSuitHeart} from "react-icons/Bs"
-import {GiChestnutLeaf,GiWeightScale, GiMedicalPackAlt, GiSyringe,GiFly,GiMedicines,GiAmberMosquito} from "react-icons/Gi"
+import {MdOutlinePregnantWoman} from "react-icons/md"
+import {BsSuitHeart} from "react-icons/bs"
+import {GiChestnutLeaf,GiWeightScale, GiMedicalPackAlt, GiSyringe,GiFly,GiMedicines,GiAmberMosquito} from "react-icons/gi"
 
 
 export default function Eligibility() {
