@@ -1,4 +1,4 @@
-The project aims at providing an easy-to-use web app for donating and requesting blood particularly in the state of Sikkim which is developed using NEXT.js and Strapi CMS.
+The project aims at providing an easy-to-use web app for donating and requesting blood particularly in the state of Sikkim which is developed using NEXT.js and Strapi CMS deployed on Vercel and Heroku respectively.
 
 Data flow Diagram:
 
