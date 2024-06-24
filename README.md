@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+The project aims at providing an easy-to-use web app for donating and requesting blood particularly in the state of Sikkim which is developed using NEXT.js andd Strapi CMS.
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/a269970f-c10a-49f6-be83-0a2b2e903e3b)
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/0fc2d3ac-209e-4578-9a17-fe0be51af22a)
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/1f5cf420-4611-4ce7-ae66-cd17d7231e20)
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/6faad1e8-276a-4534-bd67-4b96dd5f6296)
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/69eb4e76-2f67-4434-a592-396862182b7b)
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/6f8c2501-e650-4974-9a66-89d5370c97c4)
+![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/59b9831f-ca9e-47d0-847f-395198af7271)
 
-## Getting Started
 
-First, run the development server:
+This portal was launched on 18th May, 2022 by Hon'ble Chief Minister Shri Prem Singh Tamang accompanied by his spouse Smt. Krishna Rai in presence of Political Secretary Shri Jacob Khaling, Cabinet ministers, MLAs, Advisors, Chairpersons and other dignitaries on the occasion of 47th State Day Celebration and Sikkim Idol Grand finale at Mannan Kendra, Gangtok.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
