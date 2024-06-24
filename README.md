@@ -1,7 +1,13 @@
 The project aims at providing an easy-to-use web app for donating and requesting blood particularly in the state of Sikkim which is developed using NEXT.js and Strapi CMS.
 
-Data flow Diagrams:
+Data flow Diagram:
+
+
 ![image](https://github.com/srijan-Git1247/SikkimBloodDonation-WebApp/assets/73276238/6f8c2501-e650-4974-9a66-89d5370c97c4)
+
+
+
+
 
 Some Screenshots:
 
